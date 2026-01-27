@@ -188,3 +188,48 @@ function onButtonClick() {
     }
   });
 }
+
+/**
+ * @this {ColspanTable}
+ */
+function onButtonClickColSpan() {
+  /**
+   * @type {ColspanRowType}
+   */
+  const obj = {
+    author: "Franz Kafka",
+    title: "Az átváltozás",
+    concepts: "kisregény",
+    concepts2: "groteszk",
+  };
+
+  this.valami(function (tbody) {
+    const tr = document.createElement("tr");
+    tbody.appendChild(tr);
+    const author = document.createElement("td");
+    tr.appendChild(author);
+    author.innerText = obj.author;
+    const title = document.createElement("td");
+    tr.appendChild(title);
+    title.innerText = obj.title;
+    const concepts = document.createElement("td");
+    tr.appendChild(concepts);
+    concepts.innerText = obj.concepts;
+
+    if (obj.concepts2) {
+      const concepts2 = document.createElement("td");
+      tr.appendChild(concepts2);
+      concepts2.innerText = obj.concepts2;
+    } else {
+      concepts.colSpan = 2;
+    }
+  });
+}
+
+const buttonColSpan = document.createElement("button");
+document.body.appendChild(buttonColSpan);
+buttonColSpan.innerText = "Colspan hozzáadás";
+buttonColSpan.addEventListener(
+  "click",
+  onButtonClickColSpan.bind(colSpanTable),
+);
