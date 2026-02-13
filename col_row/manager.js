@@ -9,7 +9,7 @@
 
 class Manager {
   /**
-   * @type {TableType[]}
+   * @type {ColspanType[] | RowspanType[]}
    */
   #dataArray;
   /**
