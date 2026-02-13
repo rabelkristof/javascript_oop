@@ -1,5 +1,5 @@
 /**
- * @import {ColspanType, RowspanType} from "./functions.js"
+ * @import {} from "./functions.js"
  */
 /**
  * @callback AddCallback

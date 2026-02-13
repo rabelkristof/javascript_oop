@@ -1,5 +1,5 @@
 /**
- * @import {ColspanType, RowspanType, HeaderArrayType} from "./functions.js"
+ * @import {} from "./functions.js"
  */
 import { Manager } from "./manager.js";
 

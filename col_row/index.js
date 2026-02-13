@@ -1,10 +1,27 @@
 import { Manager } from "./manager.js";
 import { Table } from "./table.js";
 import data from "./data.json" with { type: "json" };
+import { FormController } from "./form.js";
 
 const colspanManager = new Manager();
 const colspanTable = new Table(data.colspanHeaderArray, colspanManager);
-colspanTable.setAppendRow((tbody, element) => {
+colspanTable.setAppendRow(renderColspanTable);
+
+for (const elem of data.colspanDataArr) {
+  colspanManager.addElement(elem);
+}
+
+const colspanForm = new FormController(
+  data.colspanFormFieldList,
+  colspanManager,
+);
+
+/**
+ *
+ * @param {HTMLTableSectionElement} tbody
+ * @param {ColspanType} element
+ */
+function renderColspanTable(tbody, element) {
   const tr = document.createElement("tr");
   tbody.appendChild(tr);
 
@@ -25,8 +42,4 @@ colspanTable.setAppendRow((tbody, element) => {
   } else {
     szerelme1.colSpan = 2;
   }
-});
-
-for (const elem of data.colspanDataArr) {
-  colspanManager.addElement(elem);
 }
