@@ -16,6 +16,11 @@ class FormController {
   #formFieldElemList;
 
   /**
+   * @type {HTMLFormElement}
+   */
+  #form;
+
+  /**
    * @param {FormFieldType[]} formFieldList
    * @param {Manager} manager
    */
@@ -23,6 +28,7 @@ class FormController {
     this.#manager = manager;
     const form = document.createElement("form");
     document.body.appendChild(form);
+    this.#form = form;
     // Itt lesznek a beviteli mezők renderelései
     this.#formFieldElemList = [];
     for (const formField of formFieldList) {
@@ -33,7 +39,7 @@ class FormController {
         label,
         required,
         // TODO: add type
-        form,
+        this.#form,
       );
 
       this.#formFieldElemList.push(formFieldElem);
@@ -41,15 +47,15 @@ class FormController {
 
     const button = document.createElement("button");
     button.innerText = "Küldés";
-    form.appendChild(button);
+    this.#form.appendChild(button);
 
-    form.addEventListener("submit", (e) => {
+    this.#form.addEventListener("submit", (e) => {
       e.preventDefault();
       const elem = this.#createElement();
 
       if (elem) {
         this.#manager.addElement(elem);
-        form.reset();
+        this.#form.reset();
       }
     });
   }
