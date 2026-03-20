@@ -68,7 +68,7 @@ manager: AuthorManager)</panel_attributes><additional_attributes></additional_at
 + validate(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>760</y><w>224</w><h>48</h></coordinates><panel_attributes>lt=&lt;-
 m1=0..*</panel_attributes><additional_attributes>260;30;130;30;130;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>696</x><y>504</y><w>144</w><h>48</h></coordinates><panel_attributes>TableCallback
 --
-(authorList: Author[]):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>776</x><y>432</y><w>88</w><h>88</h></coordinates><panel_attributes>lt=&lt;.
+(authorList: Author[]):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>776</x><y>432</y><w>80</w><h>88</h></coordinates><panel_attributes>lt=&lt;.
 implementálja</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>512</x><y>544</y><w>248</w><h>144</h></coordinates><panel_attributes>lt=&lt;-
 A getAllElement() hívja</panel_attributes><additional_attributes>290;10;290;120;10;120;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>944</x><y>504</y><w>168</w><h>48</h></coordinates><panel_attributes>AddElementResultCallback
 --
@@ -78,7 +78,7 @@ Az addElement() hívja</panel_attributes><additional_attributes>410;10;410;140;1
 --
 +author: string
 +work: string
-+concept: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1240</x><y>432</y><w>64</w><h>200</h></coordinates><panel_attributes>lt=&lt;.
++concept: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1240</x><y>432</y><w>56</w><h>200</h></coordinates><panel_attributes>lt=&lt;.
 előállítja</panel_attributes><additional_attributes>10;230;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1288</x><y>432</y><w>232</w><h>200</h></coordinates><panel_attributes>lt=&lt;.
 előállítja</panel_attributes><additional_attributes>10;230;10;120;270;120;270;10</additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>664</y><w>592</w><h>96</h></coordinates><panel_attributes>lt=&lt;.
 az AuthorType-ot az Author osztály példányaivá alakítja</panel_attributes><additional_attributes>720;20;230;20;230;100;10;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1032</x><y>560</y><w>168</w><h>112</h></coordinates><panel_attributes>FormField

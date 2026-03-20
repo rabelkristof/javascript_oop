@@ -1,4 +1,4 @@
-import { Author, AuthorManager } from "./author_manager.js";
+import { AuthorManager } from "./author_manager.js";
 import { createInputAndErrorDiv } from "./gomszab.min.js";
 import { ViewElement } from "./view_element.js";
 
