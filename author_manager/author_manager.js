@@ -10,6 +10,12 @@
  * @returns {void}
  */
 
+/**
+ * @callback ImportResultCallback
+ * @param {string} message
+ * @returns {void}
+ */
+
 export class AuthorManager {
   /**
    * @type {Author[]}
@@ -24,6 +30,11 @@ export class AuthorManager {
    * @type {AddElementResultCallback}
    */
   #addElementResultCallback;
+
+  /**
+   * @type {ImportResultCallback}
+   */
+  #importResultCallback;
 
   constructor() {
     this.#authorList = [];
@@ -44,7 +55,14 @@ export class AuthorManager {
   }
 
   /**
-   * @param {AuthorType} element
+   * @param {ImportResultCallback} value
+   */
+  set importResultCallback(value) {
+    this.#importResultCallback = value;
+  }
+
+  /**
+   * @param {import("./index.js").AuthorType} element
    */
   addElement(element) {
     const author = new Author();
@@ -61,10 +79,43 @@ export class AuthorManager {
   }
 
   /**
+   *
+   * @param {import("./index.js").AuthorType[]} elementList
+   */
+  addElementList(elementList) {
+    for (const elem of elementList) {
+      const author = new Author();
+      author.id = this.#authorList.length;
+      author.name = elem.author;
+      author.work = elem.work;
+      author.concept = elem.concept;
+      if (author.validate()) {
+        this.#authorList.push(author);
+        this.#importResultCallback("Sikeres importálás");
+      } else {
+        this.#importResultCallback("Sikertelen importálás");
+        break;
+      }
+    }
+  }
+
+  /**
    * @returns {void}
    */
   getAllElement() {
     this.#tableCallback(this.#authorList);
+  }
+
+  /**
+   * @returns {string}
+   */
+  getExportString() {
+    const result = [];
+    for (const author of this.#authorList) {
+      result.push(`${author.name};${author.work};${author.concept}`);
+    }
+
+    return result.join("\n");
   }
 }
 
